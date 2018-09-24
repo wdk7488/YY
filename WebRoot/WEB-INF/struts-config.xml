@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+  <data-sources />
+  <form-beans >
+    <form-bean name="loginForm" type="com.ssh.struts.form.LoginForm" />
+    <form-bean name="registerForm" type="com.ssh.struts.form.RegisterForm" />
+	<form-bean name="showYYForm" type="com.ssh.struts.form.ShowYYForm" />
+    <form-bean name="coupleForm" type="com.ssh.struts.form.CoupleForm" />
+    <form-bean name="modifyPandaForm" type="com.ssh.struts.form.ModifyPandaForm" />
+    <form-bean name="searchPandaForm" type="com.ssh.struts.form.SearchPandaForm" />
+    <form-bean name="searchGenealogyForm" type="com.ssh.struts.form.SearchGenealogyForm" />
+    <form-bean name="modifyGenealogyForm" type="com.ssh.struts.form.ModifyGenealogyForm" />
+    <form-bean name="addGenealogyForm" type="com.ssh.struts.form.ModifyGenealogyForm" />
+  </form-beans>
+	
+  <global-exceptions />
+  <global-forwards />
+  <action-mappings >
+    <action
+      attribute="loginForm"
+      input="/jsp/login.jsp"
+      name="loginForm"
+      path="/login"
+      scope="request"
+      type="com.ssh.struts.action.LoginAction">
+      <set-property property="cancellable" value="true" />
+      <forward name="loginSuccess" path="/jsp/loginSuccess.jsp" />
+      <forward name="loginFail" path="/jsp/loginFail.jsp" />
+    </action>
+    <action
+      attribute="registerForm"
+      input="/jsp/register.jsp"
+      name="registerForm"
+      path="/register"
+      scope="request"
+      type="com.ssh.struts.action.RegisterAction">
+      <set-property property="cancellable" value="true" />
+      <forward name="registerSuccess" path="/jsp/login.jsp" />
+      <forward name="registerFail" path="/jsp/register.jsp" />
+    </action>
+	<action
+      attribute="showYYForm"
+      input="/jsp/showYY.jsp"
+      name="showYYForm"
+      path="/showYY"
+      scope="request"
+      type="org.springframework.web.struts.DelegatingActionProxy">
+      <set-property property="cancellable" value="true" />
+      <forward name="showYY" path="/jsp/showYY.jsp" />
+      <forward name="test" path="/jsp/showYY.jsp" />
+    </action>
+    <action
+      attribute="coupleForm"
+      input="/jsp/couple.jsp"
+      name="coupleForm"
+      path="/couple"
+      scope="request"
+      type="org.springframework.web.struts.DelegatingActionProxy">
+      <set-property property="cancellable" value="true" />
+      <forward name="isCouple" path="/jsp/couple.jsp" />
+    </action>
+    <action
+      attribute="modifyPandaForm"
+      input="/jsp/modifyPanda.jsp"
+      name="modifyPandaForm"
+      path="/modifyPanda"
+      scope="request"
+      type="org.springframework.web.struts.DelegatingActionProxy">
+      <set-property property="cancellable" value="true" />
+      <forward name="showPanda" path="/jsp/searchPanda.jsp" />
+    </action>
+    <action
+      attribute="searchPandaForm"
+      input="/jsp/searchPanda.jsp"
+      name="searchPandaForm"
+      path="/searchPanda"
+      scope="request"
+      type="org.springframework.web.struts.DelegatingActionProxy">
+      <set-property property="cancellable" value="true" />
+      <forward name="showPanda" path="/jsp/searchPanda.jsp" />
+    </action>
+    <action path="/showPanda" type="org.springframework.web.struts.DelegatingActionProxy" >
+      <set-property property="cancellable" value="true" />
+      <forward name="modifyPanda" path="/jsp/modifyPanda.jsp" />
+    </action>
+    <action path="/deletePanda" type="org.springframework.web.struts.DelegatingActionProxy" >
+    	<set-property value="true" property="cancellable"/>
+    	<forward name="showPanda" path="/jsp/searchPanda.jsp"></forward>
+    </action>
+    <action path="/index" type="org.springframework.web.struts.DelegatingActionProxy" >
+    	<set-property value="true" property="cancellable"/>
+    	<forward name="index" path="/jsp/index.jsp"></forward>
+    </action>
+    
+    <action
+      attribute="searchGenealogyForm"
+      input="/jsp/searchGenealogy.jsp"
+      name="searchGenealogyForm"
+      path="/searchGenealogy"
+      scope="request"
+      type="org.springframework.web.struts.DelegatingActionProxy">
+      <set-property property="cancellable" value="true" />
+      <forward name="searchGenealogy" path="/jsp/searchGenealogy.jsp" />
+    </action>
+    <action
+      attribute="modifyGenealogyForm"
+      input="/jsp/modifyGenealogy.jsp"
+      name="modifyGenealogyForm"
+      path="/modifyGenealogy"
+      scope="request"
+      type="org.springframework.web.struts.DelegatingActionProxy">
+      <set-property property="cancellable" value="true" />
+      <forward name="searchGenealogy" path="/jsp/searchGenealogy.jsp" />
+    </action>
+    <action
+      attribute="addGenealogyForm"
+      input="/jsp/addGenealogy.jsp"
+      name="addGenealogyForm"
+      path="/addGenealogy"
+      scope="request"
+      type="org.springframework.web.struts.DelegatingActionProxy">
+      <set-property property="cancellable" value="true" />
+      <forward name="searchGenealogy" path="/jsp/searchGenealogy.jsp" />
+    </action>
+     <action path="/modifyGenealogyByZid" type="org.springframework.web.struts.DelegatingActionProxy" >
+    	<set-property value="true" property="cancellable"/>
+    	<forward name="modifyGenealogy" path="/jsp/modifyGenealogy.jsp"></forward>
+    	<forward name="searchGenealogy" path="/jsp/searchGenealogy.jsp"></forward>
+    </action>
+     <action path="/deleteGenealogy" type="org.springframework.web.struts.DelegatingActionProxy" >
+    	<set-property value="true" property="cancellable"/>
+    	<forward name="searchGenealogy" path="/jsp/searchGenealogy.jsp"></forward>
+    </action>		
+    <action path="/getGenealogyList" type="org.springframework.web.struts.DelegatingActionProxy" >
+    	<set-property value="true" property="cancellable"/>
+    	<forward name="showGenealogy" path="/jsp/showGenealogy.jsp"></forward>
+    </action>
+    
+    <action path="/showPandaDetail" type="org.springframework.web.struts.DelegatingActionProxy" >
+    	<set-property value="true" property="cancellable"/>
+    	<forward name="detailPanda" path="/jsp/detailPanda.jsp"></forward>
+    </action>
+    
+    <action path="/addCharacter" type="org.springframework.web.struts.DelegatingActionProxy" >
+    	<set-property value="true" property="cancellable"/>
+    	<forward name="searchPanda" path="/jsp/searchPanda.jsp"></forward>
+    	<forward name="detailPanda" path="/jsp/detailPanda.jsp"></forward>
+    </action>
+    <action path="/getCharacterList" type="org.springframework.web.struts.DelegatingActionProxy" >
+    	<set-property value="true" property="cancellable"/>
+    	<forward name="searchPanda" path="/jsp/searchPanda.jsp"></forward>
+    	<forward name="detailPanda" path="/jsp/detailPanda.jsp"></forward>
+    </action>
+    /
+    
+  </action-mappings>
+  <!-- Spring 的 DelegatingRequestProcessor 类整合struts  解决了action中的service为null的问题
+  <controller processorClass="org.springframework.web.struts.DelegatingRequestProcessor"/>
+   -->
+  <message-resources parameter="com.ssh.struts.ApplicationResources" />
+  
+  <!-- struts来装载spring的应用环境 -->
+  <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+  	<set-property value="/WEB-INF/applicationContext.xml" property="contextConfigLocation"/>
+  </plug-in>
+</struts-config>
+

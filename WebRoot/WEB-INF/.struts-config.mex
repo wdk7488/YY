@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowViewLayout Version="1.2">
+  <StrutsActivity path="/login.do" location="50,50" dimension="233,104" />
+  <StrutsActivity path="/register.do" location="950,150" dimension="249,104" />
+  <StrutsActivity path="/showYY.do" location="350,250" dimension="246,104" />
+  <StrutsActivity path="/couple.do" location="50,450" dimension="242,104" />
+  <StrutsActivity path="/modifyPanda.do" location="650,550" dimension="278,104" />
+  <StrutsActivity path="/searchPanda.do" location="350,750" dimension="276,104" />
+  <StrutsActivity path="/showPanda.do" location="50,950" dimension="275,104" />
+  <StrutsActivity path="/deletePanda.do" location="650,950" dimension="362,104" />
+  <StrutsActivity path="/index.do" location="50,1150" dimension="362,104" />
+  <StrutsActivity path="/searchGenealogy.do" location="650,1150" dimension="302,104" />
+  <StrutsActivity path="/modifyGenealogy.do" location="350,1350" dimension="304,104" />
+  <StrutsActivity path="/addGenealogy.do" location="50,1550" dimension="287,104" />
+  <StrutsActivity path="/modifyGenealogyByZid.do" location="1250,650" dimension="362,104" />
+  <StrutsActivity path="/deleteGenealogy.do" location="1250,850" dimension="362,104" />
+  <StrutsActivity path="/getGenealogyList.do" location="1250,1050" dimension="362,104" />
+  <StrutsActivity path="/showPandaDetail.do" location="1250,1450" dimension="362,104" />
+  <StrutsActivity path="/addCharacter.do" location="1250,1650" dimension="362,104" />
+  <StrutsActivity path="/getCharacterList.do" location="50,1750" dimension="362,104" />
+  <StrutsActivity path="/jsp/loginFail.jsp" location="675,135" dimension="127,53" />
+  <StrutsActivity path="/jsp/loginSuccess.jsp" location="650,50" dimension="153,53" />
+  <StrutsActivity path="/jsp/login.jsp" location="350,50" dimension="108,53" />
+  <StrutsActivity path="/jsp/register.jsp" location="50,250" dimension="124,53" />
+  <StrutsActivity path="/jsp/showYY.jsp" location="650,250" dimension="123,53" />
+  <StrutsActivity path="/jsp/couple.jsp" location="350,450" dimension="118,53" />
+  <StrutsActivity path="/jsp/searchPanda.jsp" location="950,750" dimension="153,53" />
+  <StrutsActivity path="/jsp/modifyPanda.jsp" location="50,650" dimension="155,53" />
+  <StrutsActivity path="/jsp/index.jsp" location="950,350" dimension="110,53" />
+  <StrutsActivity path="/jsp/searchGenealogy.jsp" location="50,1350" dimension="179,53" />
+  <StrutsActivity path="/jsp/modifyGenealogy.jsp" location="950,1350" dimension="181,53" />
+  <StrutsActivity path="/jsp/addGenealogy.jsp" location="1250,450" dimension="164,53" />
+  <StrutsActivity path="/jsp/showGenealogy.jsp" location="1250,1250" dimension="171,53" />
+  <StrutsActivity path="/jsp/detailPanda.jsp" location="950,1550" dimension="147,53" />
+  <StrutsActivity path="/form/addGenealogy.jsp" location="650,1550" dimension="175,53" />
+  <StrutsTransition id="/showYY.do,showYY,/jsp/showYY.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="596,318" />
+      <AbsolutePoint location="711,318" />
+      <AbsolutePoint location="711,303" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jsp/searchPanda.jsp,null,/searchPanda.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1027,803" />
+      <AbsolutePoint location="1027,818" />
+      <AbsolutePoint location="626,818" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jsp/showYY.jsp,null,/showYY.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="741,303" />
+      <AbsolutePoint location="741,369" />
+      <AbsolutePoint location="483,369" />
+      <AbsolutePoint location="483,354" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/searchGenealogy.do,searchGenealogy,/jsp/searchGenealogy.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="801,1254" />
+      <AbsolutePoint location="801,1499" />
+      <AbsolutePoint location="193,1499" />
+      <AbsolutePoint location="193,1403" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/getCharacterList.do,searchPanda,/jsp/searchPanda.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="50,1802" />
+      <AbsolutePoint location="-100,1802" />
+      <AbsolutePoint location="-100,1099" />
+      <AbsolutePoint location="1057,1099" />
+      <AbsolutePoint location="1057,803" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/index.do,index,/jsp/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="50,1202" />
+      <AbsolutePoint location="-25,1202" />
+      <AbsolutePoint location="-25,718" />
+      <AbsolutePoint location="996,718" />
+      <AbsolutePoint location="996,403" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addCharacter.do,detailPanda,/jsp/detailPanda.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1431,1702" />
+      <AbsolutePoint location="1023,1576" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/showPandaDetail.do,detailPanda,/jsp/detailPanda.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1250,1499" />
+      <AbsolutePoint location="1023,1499" />
+      <AbsolutePoint location="1023,1550" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jsp/searchGenealogy.jsp,null,/searchGenealogy.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="139,1350" />
+      <AbsolutePoint location="139,1269" />
+      <AbsolutePoint location="771,1269" />
+      <AbsolutePoint location="771,1254" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jsp/register.jsp,null,/register.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="112,303" />
+      <AbsolutePoint location="112,418" />
+      <AbsolutePoint location="1075,418" />
+      <AbsolutePoint location="1075,254" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jsp/modifyPanda.jsp,null,/modifyPanda.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="127,650" />
+      <AbsolutePoint location="127,602" />
+      <AbsolutePoint location="650,602" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deletePanda.do,showPanda,/jsp/searchPanda.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="997,950" />
+      <AbsolutePoint location="997,803" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/modifyGenealogyByZid.do,modifyGenealogy,/jsp/modifyGenealogy.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1250,688" />
+      <AbsolutePoint location="1118,688" />
+      <AbsolutePoint location="1118,1350" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/modifyGenealogy.do,searchGenealogy,/jsp/searchGenealogy.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="350,1376" />
+      <AbsolutePoint location="229,1376" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/showPanda.do,modifyPanda,/jsp/modifyPanda.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="127,950" />
+      <AbsolutePoint location="127,703" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jsp/couple.jsp,null,/couple.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="409,503" />
+      <AbsolutePoint location="409,518" />
+      <AbsolutePoint location="292,518" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/register.do,registerFail,/jsp/register.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="950,233" />
+      <AbsolutePoint location="112,233" />
+      <AbsolutePoint location="112,250" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/getGenealogyList.do,showGenealogy,/jsp/showGenealogy.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1335,1154" />
+      <AbsolutePoint location="1335,1250" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/getCharacterList.do,detailPanda,/jsp/detailPanda.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="231,1802" />
+      <AbsolutePoint location="1023,1576" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addGenealogy.do,searchGenealogy,/jsp/searchGenealogy.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="139,1550" />
+      <AbsolutePoint location="139,1403" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deleteGenealogy.do,searchGenealogy,/jsp/searchGenealogy.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1250,902" />
+      <AbsolutePoint location="5,902" />
+      <AbsolutePoint location="5,1376" />
+      <AbsolutePoint location="50,1376" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/register.do,registerSuccess,/jsp/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="950,203" />
+      <AbsolutePoint location="404,203" />
+      <AbsolutePoint location="404,103" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/getCharacterList.do,showPandaDetail,/showPandaDetail.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="365,1750" />
+      <AbsolutePoint location="365,1529" />
+      <AbsolutePoint location="1250,1529" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/showYY.do,test,/jsp/showYY.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="596,276" />
+      <AbsolutePoint location="650,276" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/login.do,loginFail,/jsp/loginFail.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="283,139" />
+      <AbsolutePoint location="675,139" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/couple.do,isCouple,/jsp/couple.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="292,476" />
+      <AbsolutePoint location="350,476" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/searchPanda.do,showPanda,/jsp/searchPanda.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="626,776" />
+      <AbsolutePoint location="950,776" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jsp/addGenealogy.jsp,null,/addGenealogy.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1250,476" />
+      <AbsolutePoint location="1176,476" />
+      <AbsolutePoint location="1176,1618" />
+      <AbsolutePoint location="337,1618" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/modifyPanda.do,showPanda,/jsp/searchPanda.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="928,602" />
+      <AbsolutePoint location="1026,602" />
+      <AbsolutePoint location="1026,750" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addCharacter.do,searchPanda,/jsp/searchPanda.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1612,1702" />
+      <AbsolutePoint location="1777,1702" />
+      <AbsolutePoint location="1777,776" />
+      <AbsolutePoint location="1103,776" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jsp/modifyGenealogy.jsp,null,/modifyGenealogy.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="950,1376" />
+      <AbsolutePoint location="654,1376" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/login.do,loginSuccess,/jsp/loginSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="166,50" />
+      <AbsolutePoint location="166,-25" />
+      <AbsolutePoint location="726,-25" />
+      <AbsolutePoint location="726,50" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/modifyGenealogyByZid.do,searchGenealogy,/jsp/searchGenealogy.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1612,702" />
+      <AbsolutePoint location="1687,702" />
+      <AbsolutePoint location="1687,1318" />
+      <AbsolutePoint location="169,1318" />
+      <AbsolutePoint location="169,1350" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jsp/login.jsp,null,/login.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="350,76" />
+      <AbsolutePoint location="283,76" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/getCharacterList.do,showPandaDetail,/jsp/detailPanda.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="231,1802" />
+      <AbsolutePoint location="1023,1576" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+</FlowViewLayout>
+

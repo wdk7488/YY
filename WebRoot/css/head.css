@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+
+body {position:relative;margin:0}
+
+header	{width:1300px;height:63px;background-image:url("/SSH/image/head_img_cp.jpg");display:block; }
+.head_li, .body_li, .foot_li {list-style-type:none; display:inline-block; }
+
+
+
+div	{white-space:nowrap;display:inline-block;}
+#head_title	{margin-left:60px;margin-top:10px;font-size:40px;  display:inline-block;float:left}
+.head_div {height:63px;width:40%;}
+.head_ul	{width:50%;height:63px;float:left}
+.head_li	{width:110px; height:63px; font-size:30px}
+
+.div_img	{width:210px; height:55px;display:block;}
+
+
+#body_div	{margin-top:10px;margin-bottom:180px;diplay:bolck;}
+#body_big_img {}
+.body_li	{color:red;background-color:white;font-size:30px}
+
+.div_info {margin-left:10px;padding:0;float:left;width:100%;height:400px}
+.body_zupu	{width:100%;height:400px}
+
+
+footer	{display:block;float:left;width:100%;height:180px;bottom:5px}
+.foot_div	{display:block;text-align:center;}
+.foot_li	{width:200px;height:50px;font-size:20px;}

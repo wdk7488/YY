@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans	
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd 
+    ">
+	
+	<!-- 扫描包并加载注解的bean 整合了context:annotation-config的功能-->
+	<context:component-scan base-package="com.ssh" ></context:component-scan>
+	
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver">
+		</property>
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/test"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="123"></property>
+	</bean>
+	
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect"><!-- 方言，对应使用的数据库 如果改变某些自定义sql需要跟随变化 -->
+					<!--org.hibernate.dialect.MySQLDialect  -->
+					com.ssh.common.TextMysql5Dialect
+				</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/ssh/POJO/User.hbm.xml</value>
+				<value>com/ssh/POJO/Panda.hbm.xml</value>
+				<value>com/ssh/POJO/Genealogy.hbm.xml</value>
+				<value>com/ssh/POJO/Characteristics.hbm.xml</value>
+				<value>com/ssh/POJO/Pandacharacter.hbm.xml</value></list>
+		</property></bean>
+		
+		
+		
+	<bean id="userDAO" class="com.ssh.DAO.UserDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+	<bean id="pandaDAO" class="com.ssh.DAO.PandaDAO" lazy-init="true">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!--
+	<bean id="pandaService" class="com.ssh.service.SearchPandaService" lazy-init="true">
+		
+		<property name="pandaDAO">
+			<ref bean="pandaDAO" />
+		</property>
+		
+	</bean>
+	-->
+	<!--
+	<bean id="showYYService" class="com.ssh.service.ShowYYService">
+		<property name="pandaDAO">
+			<ref bean="pandaDAO" />
+		
+		</property>
+	</bean>
+	-->
+	
+	<!--
+	<bean name="/searchPanda" class="com.ssh.struts.action.SearchPandaAction" scope="prototype" lazy-init="true">
+	
+		<property name="searchPandaService">
+			<ref bean="pandaService" />
+		</property> 
+		
+	</bean>
+	-->
+	 <!-- 
+	<bean name="/showPanda" class="com.ssh.struts.action.ShowPandaAction" scope="prototype" lazy-init="true">
+	
+		<property name="searchPandaService">
+			<ref bean="pandaService" />
+		</property> 
+		
+	</bean>
+	-->
+	
+	<bean id="genealogyDAO" class="com.ssh.DAO.GenealogyDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="characteristicsDAO"
+		class="com.ssh.DAO.CharacteristicsDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"></ref>
+		</property>
+	</bean>
+	<bean id="pandacharacterDAO"
+		class="com.ssh.DAO.PandacharacterDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="transactionManager"  class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	    <!-- 引用数据源 -->
+	    <property name="dataSource" >
+		<ref bean="dataSource"/>
+	    </property>
+	</bean> 
+	<!-- 注解驱动，对@Transactional这个注解进行的驱动，就可以使用@Trasactional注解了 
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="false" />   
+	-->
+
+</beans>
+	
+
+	
+	
+	
+	
