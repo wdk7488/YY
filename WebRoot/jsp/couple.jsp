@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
 
 		<title>JSP for CoupleForm form</title>
-		<link rel = "stylesheet" type="text/css" href="css/head.css">
+		<link rel = "stylesheet" type="text/css" href="<%=basePath%>css/head.css">
 	</head>
 	<body>
 	<%@ include file="head1.jsp" %>

@@ -13,9 +13,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
 		<title>JSP for ModifyPandaForm form</title>
-		<link rel = "stylesheet" type="text/css" href="css/head.css">
-		<script type="text/javascript" src="js/jQuery.js" charset="utf-8"></script>
-		<script type="text/javascript" src="js/characteristics.js" charset="utf-8"></script>
+		<link rel = "stylesheet" type="text/css" href="<%=basePath%>css/head.css">
+		<script type="text/javascript" src="<%=basePath%>js/jQuery.js" charset="utf-8"></script>
+		<script type="text/javascript" src="<%=basePath%>js/characteristics.js" charset="utf-8"></script>
 		 <style type="text/css">
 		 	
 		 	.div_info {height:400px;width:400px;margin-top:30px;margin-left:10px;float:left;}

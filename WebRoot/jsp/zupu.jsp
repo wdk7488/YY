@@ -18,10 +18,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	<script src="js/jQuery.js"></script>
-	<script src="js/canvas.js" charset="utf-8" ></script>
-	<script src="js/zupuSonAndAncestry.js" charset="utf-8" ></script>
-	<link rel = "stylesheet" type="text/css" href="css/head.css">
+	<script src="<%=basePath%>js/jQuery.js"></script>
+	<script src="<%=basePath%>js/canvas.js" charset="utf-8" ></script>
+	<script src="<%=basePath%>js/zupuSonAndAncestry.js" charset="utf-8" ></script>
+	<link rel = "stylesheet" type="text/css" href="<%=basePath%>css/head.css">
   </head>
   	
   <body id="${zid }" class="body_zupu">

@@ -23,7 +23,7 @@
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>/jsp/index.jps</welcome-file>
   </welcome-file-list>
   
   <!-- spring好像不需要

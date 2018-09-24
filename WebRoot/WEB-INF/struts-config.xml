@@ -153,7 +153,6 @@
     	<forward name="searchPanda" path="/jsp/searchPanda.jsp"></forward>
     	<forward name="detailPanda" path="/jsp/detailPanda.jsp"></forward>
     </action>
-    /
     
   </action-mappings>
   <!-- Spring 的 DelegatingRequestProcessor 类整合struts  解决了action中的service为null的问题

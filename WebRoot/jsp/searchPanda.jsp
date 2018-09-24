@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
 		<title>JSP for SearchPandaForm form</title>
-		<link rel = "stylesheet" type="text/css" href="css/head.css">
+		<link rel = "stylesheet" type="text/css" href="<%=basePath%>css/head.css">
 	</head>
 	<body>
 	extends、<%@ include file="head1.jsp" %>
@@ -40,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<c:if test="${notnull==1}">
 		<c:forEach items="${list}" var="list">
 			<tr>
-				<td><a href = "/SSH/showPandaDetail.do?zid=${list.zid}">${list.zid}</a></td>
+				<td><a href = "<%=basePath%>showPandaDetail.do?zid=${list.zid}">${list.zid}</a></td>
 				<td>${list.name}</td>
 				<td>${list.father}</td>
 				<td>${list.mother}</td>
