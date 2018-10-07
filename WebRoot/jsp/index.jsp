@@ -18,15 +18,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	<link rel = "stylesheet" type="text/css" href="css/common.css">
-	<link rel = "stylesheet" type="text/css" href="css/head.css">
+	<link rel = "stylesheet" type="text/css" href="<%=basePath%>css/common.css">
+	<link rel = "stylesheet" type="text/css" href="<%=basePath%>css/head.css">
 	
   </head>
   	<body>
   		<%@ include file="head1.jsp"  %>	
   		
   		<div id = "body_div">
-    		<img id="body_big_img" alt="封面" src="/SSH/image/big_img_modify.jpg">
+    		<img id="body_big_img" alt="封面" src="<%=basePath%>image/big_img_modify.jpg">
     		<ul class="body_ul">
     			<li class="body_li">后续添加页面</li>
     		</ul>

@@ -3,6 +3,6 @@
 
 <html>
 
-    <img alt="封面" src="/SSH/image/big_img_modify.jpg">
+    <img alt="封面" src="<%=basePath%>image/big_img_modify.jpg">
 
 </html>

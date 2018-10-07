@@ -12,8 +12,6 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import sun.rmi.log.LogInputStream;
-
 import java.util.List;
 
 import com.ssh.DAO.UserDAO;
@@ -54,16 +52,16 @@ public class LoginAction extends Action {
 		user.setPassword(password);
 		UserDAO userDAO = (UserDAO)Global.getBean("UserDAO");
 		List<?> list =  userDAO.findByExample(user);
-		 //如果用户存在,则登录成功。
+		 //濡傛灉鐢ㄦ埛瀛樺湪,鍒欑櫥褰曟垚鍔熴��
         if(( list).size() > 0){
         	user = (User)list.get(0);
             String nickname = user.getNickname();
-            //写入提示信息
-            request.setAttribute("message", "您的昵称为:" + nickname);
+            //鍐欏叆鎻愮ず淇℃伅
+            request.setAttribute("message", "鎮ㄧ殑鏄电О涓�:" + nickname);
             return mapping.findForward("loginSuccess");
         }
        
-        //不匹配,跳转到登录失败页
+        //涓嶅尮閰�,璺宠浆鍒扮櫥褰曞け璐ラ〉
         return mapping.findForward("loginFail");		
 				
 		/**

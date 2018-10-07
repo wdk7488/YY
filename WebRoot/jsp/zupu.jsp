@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 	<script src="<%=basePath%>js/jQuery.js"></script>
 	<script src="<%=basePath%>js/canvas.js" charset="utf-8" ></script>
-	<script src="<%=basePath%>js/zupuSonAndAncestry.js" charset="utf-8" ></script>
+	<script src="<%=basePath%>js/pandaZupu.js" charset="utf-8" ></script><!-- zupuSonAndAncestry -->
 	<link rel = "stylesheet" type="text/css" href="<%=basePath%>css/head.css">
   </head>
   	
@@ -31,9 +31,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <!-- 
   <p id ="p1">111</p>
   <input type="button" id="button1" value="test" /> -->
-  <input type="text" name="zid" id="zid">
-  <input type="button" id="ancestryButton" onclick="showSon();" value="子女">
-  <input type="button" id="sonButton" onclick="showAncestry();" value="祖先"><span>(只支持谱系号查找，需要了解上3代祖先谱系点击祖先按钮，点击黄色部分显示该熊猫的子女谱系，点击黑色耳朵显示祖宗谱系。)</span>
+  谱系号：<input type="text" name="zid" id="zid"/>
+  显示代数：<input type="text" name="showLine" id="showLine"/>
+  <input type="button" id="sonButton" onclick="showSon();" value="子女">
+  <input type="button" id="ancestryButton" onclick="showAncestry();" value="祖先"><span>(只支持谱系号查找，需要了解上3代祖先谱系点击祖先按钮，点击黄色部分显示该熊猫的子女谱系，点击黑色耳朵显示祖宗谱系。)</span>
   <canvas id="drawing"  >浏览器不支持canvas</canvas>
   <%@ include file="foot.jsp" %>
   </body>

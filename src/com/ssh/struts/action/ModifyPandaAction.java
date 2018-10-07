@@ -60,10 +60,7 @@ public class ModifyPandaAction extends Action {
 		String zid = modifyPandaForm.getZid();
 		String name = modifyPandaForm.getName();
 		String birthday = modifyPandaForm.getBirthday();
-		if(searchPandaService == null){
-			log.info("searchPandaService is null,create from Global");
-			searchPandaService = (SearchPandaService) Global.getBean("searchPandaService");
-		}
+		
 		Panda panda = modifyPandaForm.getPanda();
 		searchPandaService.modifyPanda(panda);
 		return mapping.findForward("showPanda");

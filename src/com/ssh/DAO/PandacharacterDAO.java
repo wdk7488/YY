@@ -3,6 +3,7 @@ package com.ssh.DAO;
 import java.util.List;
 import org.hibernate.LockMode;
 import org.hibernate.SQLQuery;
+import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -58,28 +59,31 @@ public class PandacharacterDAO extends HibernateDaoSupport {
 
 	
 	public List<?> queryBySql(String sql){
-		
+		Session session =  getSession();
 		log.info(" [queryBySql] queryBySql:"+sql);
-		List<?> list = getSession().createSQLQuery(sql).list();
+		List<?> list = session.createSQLQuery(sql).list();
 		log.info(" [queryBySql] query result size:"+list.size());
+		session.close();
 		return list;
 		
 	}
 	
 	public Object queryUniqueBySql(String sql){
-		
+		Session session =  getSession();
 		//log.info("[queryUniqueBySql]  queryBySql:"+sql);
-		Object object = getSession().createSQLQuery(sql).uniqueResult();
+		Object object = session.createSQLQuery(sql).uniqueResult();
 		log.info(" [queryUniqueBySql] querySql:("+sql+") result object:"+object);
+		session.close();
 		return object;
 	}
 	
 	public int excuteBySql(String sql){
-		
+		Session session =  getSession();
 		log.info(" [excuteBySql] queryBySql:"+sql);
-		SQLQuery sqlQuery = getSession().createSQLQuery(sql);
+		SQLQuery sqlQuery = session.createSQLQuery(sql);
 		int result = sqlQuery.executeUpdate();//跟新的条数
 		log.info(" [excuteBySql] query result int:"+result);
+		session.close();
 		return result;
 		
 	}

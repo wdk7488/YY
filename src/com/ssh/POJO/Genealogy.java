@@ -136,11 +136,11 @@ public class Genealogy implements java.io.Serializable {
 
 	public void setBirthday(Date birthday) {
 		
-		/*
+		
 		if(null == birthday){//这里非常奇妙  在search查询sql中  因为数据被持久化  这里会修改所有为null的date为new Date()
 			birthday = new Date(0);
 		}
-		*/
+		
 		this.birthday = birthday;
 	}
 

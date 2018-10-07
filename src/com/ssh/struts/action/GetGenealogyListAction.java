@@ -70,72 +70,75 @@ public class GetGenealogyListAction extends Action {
 		List list = new ArrayList(); 
 		List list2 = new ArrayList();
 		
-		if("ANCESTRY".equals(display) && !ancestryId.isEmpty()){
+		if("SON".equals(display) && !ancestryId.isEmpty()){
 			log.info("getlist by ANCESTRY");
 			Genealogy genealogyTemp = new Genealogy();
 			genealogyTemp.setZid(ancestryId);
 			Genealogy genealogy = genealogyService.getGenealogys(genealogyTemp).get(0);
 			if(genealogy != null){
-
 				Map pandaMap = new HashMap();
 				pandaMap.put("genealogy",genealogy);
 				pandaMap.put("line", 1);
 				pandaMap.put("ancestry", genealogy.getFather());//这里key应该改为nextNode或者ancestryId
 				
 				list2.add(pandaMap);
-				list = genealogyService.whosYourAncestryByLineAndSex(ancestryId,1,genealogy.getSex() == null?2:genealogy.getSex(),true);
+				list = genealogyService.whosYourSonByLineAndSex(ancestryId,1,genealogy.getSex() == null?2:genealogy.getSex(),true);
 				if(list != null ){
 					for (Object object : list) {
 						list2.add(object);
 					}
 				}
-				
 				log.info("getlist by Ancestry("+ancestryId+") , size:"+list2.size());
 				
 			}
-			
-			
-			
 		}
-		else if("SON".equals(display) && !ancestryId.isEmpty()){
+		else if("ANCESTRY".equals(display) && !ancestryId.isEmpty()){
+			
+			
+			list2 = genealogyService.whosYourAncestryByLineAndSex(ancestryId, "0", 1, true);
+			
 			
 			int line = 0;
-			list = genealogyService.whosYourSonByLineAndSex(ancestryId, "0", 1, true);
-			
-			if(null != list2 && list.size() >1){
+			/*if(null != list && list.size() > 0){
 				//为了不加个js方法，这里需要先取出line，然后line全部取反
 				for (Object object : list) {
 					if((Integer)((Map)object).get("line") > line){
 						line = (Integer)((Map)object).get("line");
 					}
 				}
-				
+				//取得最大代数并加1
 				line += 1;
 				for(Object object : list){
 					
 					int li = (Integer)((Map)object).get("line");
-					if(line <= 5){
-						((Map)object).put("line", line-li);
-						list2.add(object);
-					}
-					else if(line > 5){
-						//转类型都这么麻烦 自动解包  太复杂了  考虑用泛型
-						//倒叙数4个加入list2列表
-						if(li < 5){
-							((Map)object).put("line", 5-li);
-							list2.add(object);
-						}
-						
-						
-					}
+					
+					//代数line倒过来
+					((Map)object).put("line", line-li);
+					list2.add(object);
+					
+//					  数字5是限定多少代
+//					if(line <= 5){
+//						((Map)object).put("line", line-li);
+//						list2.add(object);
+//					}
+//					else if(line > 5){
+//						//转类型都这么麻烦 自动解包  太复杂了  考虑用泛型
+//						//倒叙数4个加入list2列表
+//						if(li < 5){
+//							((Map)object).put("line", 5-li);
+//							list2.add(object);
+//						}
+//						
+//						
+//					}
 					
 					
 					
 				}
 				
-				log.info("getlist by SON("+ancestryId+") , size:"+list2.size());
-			}
-		
+				
+			}*/
+			log.info("getlist by SON("+ancestryId+") , size:"+list2.size());
 		
 		}
 		else{

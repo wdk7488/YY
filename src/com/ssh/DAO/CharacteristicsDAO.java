@@ -1,8 +1,12 @@
 package com.ssh.DAO;
 
+import java.sql.SQLException;
 import java.util.List;
+
+import org.hibernate.HibernateException;
 import org.hibernate.LockMode;
 import org.hibernate.SQLQuery;
+import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -56,28 +60,55 @@ public class CharacteristicsDAO extends HibernateDaoSupport {
 	}
 
 	public List<?> queryBySql(String sql){
-		
+		Session session =  getSession();
 		log.info(" [queryBySql] queryBySql:"+sql);
-		List<?> list = getSession().createSQLQuery(sql).list();
+		List<?> list = session.createSQLQuery(sql).list();
 		log.info(" [queryBySql] query result size:"+list.size());
+		try {
+			session.close().close();
+		} catch (HibernateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
 		return list;
 		
 	}
 	
 	public Object queryUniqueBySql(String sql){
-		
+		Session session =  getSession();
 		//log.info("[queryUniqueBySql]  queryBySql:"+sql);
-		Object object = getSession().createSQLQuery(sql).uniqueResult();
+		Object object = session.createSQLQuery(sql).uniqueResult();
 		log.info(" [queryUniqueBySql] querySql:("+sql+") result object:"+object);
+		try {
+			session.close().close();
+		} catch (HibernateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return object;
 	}
 	
 	public int excuteBySql(String sql){
-		
+		Session session =  getSession();
 		log.info(" [excuteBySql] queryBySql:"+sql);
-		SQLQuery sqlQuery = getSession().createSQLQuery(sql);
+		SQLQuery sqlQuery = session.createSQLQuery(sql);
 		int result = sqlQuery.executeUpdate();//跟新的条数
 		log.info(" [excuteBySql] query result int:"+result);
+		try {
+			session.close().close();
+		} catch (HibernateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
 		return result;
 		
 	}

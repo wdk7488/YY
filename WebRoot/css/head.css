@@ -1,8 +1,8 @@
 @CHARSET "UTF-8";
 
-body {position:relative;margin:0}
+body {position:relative;margin:0;}
 
-header	{width:1300px;height:63px;background-image:url("/SSH/image/head_img_cp.jpg");display:block; }
+header	{width:1300px;height:63px;background-image:url("/image/head_img_cp.jpg");display:block; }
 .head_li, .body_li, .foot_li {list-style-type:none; display:inline-block; }
 
 
@@ -20,8 +20,14 @@ div	{white-space:nowrap;display:inline-block;}
 #body_big_img {}
 .body_li	{color:red;background-color:white;font-size:30px}
 
-.div_info {margin-left:10px;padding:0;float:left;width:100%;height:400px}
+
 .body_zupu	{width:100%;height:400px}
+
+.div_info {height:400px;width:auto;margin-top:30px;margin-left:10px;float:left;}
+		 	.div_qiang {height:400px;width:400px;background-color:pink;float:right;margin-left:60px}
+		 	.div_input {height:20px;width:400px;float:left}
+		 	.div_tag {background-color:white;margin:6px;float:left}
+		 	
 
 
 footer	{display:block;float:left;width:100%;height:180px;bottom:5px}

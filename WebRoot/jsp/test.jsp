@@ -19,9 +19,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
+	<script type="text/javascript" src="<%=basePath%>js/jQuery.js"></script>
+	
+	<script type="text/javascript" src="<%=basePath%>js/canvas.js"></script>
+	<script type="text/javascript" src="<%=basePath%>js/test.js"></script>
+	
   </head>
-  
+  	<canvas id="drawing"  >浏览器不支持canvas</canvas>
   <body>
     错误页面 <br>
   </body>

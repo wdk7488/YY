@@ -7,36 +7,36 @@
 		<title>JSP for ModifyGenealogyForm form</title>
 	</head>
 	<body>
-		<html:form action="/modifyGenealogy">
+		<html:form action="/addGenealogy">
 			zid : <html:hidden property="zid"/><html:errors property="zid"/><br/>
 			userId : <html:hidden property="userId"/><html:errors property="userId"/><br/>
-			sheetName : <html:text property="sheetName"/><html:errors property="sheetName"/><br/>
-			name:  <html:text property="name"/><html:errors property="name"/><br/>
-			sex : 
+			表单 : <html:text property="sheetName"/><html:errors property="sheetName"/><br/>
+			名字:  <html:text property="name"/><html:errors property="name"/><br/>
+			性别 : 
 			男<html:radio  property="sex" value="1"/>
 			女<html:radio property="sex" value="0"/>
 			未知<html:radio property="sex" value="2"/>
 			<html:errors property="sex"/><br/>
-			father : <html:text property="father"/><html:errors property="father"/><br/>
-			mother : <html:text property="mother"/><html:errors property="mother"/><br/>
+			父亲名 : <html:text property="father"/><html:errors property="father"/><br/>
+			母亲名 : <html:text property="mother"/><html:errors property="mother"/><br/>
 			
 			
-			birthday : <html:text property="birthday"/><html:errors property="birthday"/><br/>
-			dateOfDeath : <html:text property="dateOfDeath"/><html:errors property="dateOfDeath"/><br/>
+			生日 : <html:text property="birthday"/><html:errors property="birthday"/><br/>
+			忌日 : <html:text property="dateOfDeath"/><html:errors property="dateOfDeath"/><br/>
 			
-			other : <html:text property="other"/><html:errors property="other"/><br/>
-			remark : <html:textarea property="remark"/><html:errors property="remark"/><br/>
-			characteristi : <html:text property="characteristi"/><html:errors property="characteristi"/><br/>
+			其他 : <html:text property="other"/><html:errors property="other"/><br/>
+			备注 : <html:textarea property="remark"/><html:errors property="remark"/><br/>
+			性格 : <html:text property="characteristi"/><html:errors property="characteristi"/><br/>
 			
-			photo : <html:text property="photo"/><html:errors property="photo"/><br/>
+			照片 : <html:text property="photo"/><html:errors property="photo"/><br/>
 			
-			resume : <html:textarea property="resume"/><html:errors property="resume"/><br/>
+			简历 : <html:textarea property="resume"/><html:errors property="resume"/><br/>
 			
 			
 			
-			ancestryId : <html:text property="ancestryId"/><html:errors property="ancestryId"/><br/>
-			place : <html:text property="place"/><html:errors property="place"/><br/>
-			<html:submit/><html:cancel/>
+			祖先 : <html:text property="ancestryId"/><html:errors property="ancestryId"/><br/>
+			现居地 : <html:text property="place"/><html:errors property="place"/><br/>
+			<html:submit value="保存"/><html:cancel value="取消"/>
 		</html:form>
 	</body>
 </html>

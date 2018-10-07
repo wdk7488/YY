@@ -1,4 +1,4 @@
- var url = "index.do?display=SON&ancestryId=";
+ var url = "index.do?display=ANCESTRY&ancestryId=";
  var url_ancestry = "index.do?display=ANCESTRY&ancestryId=";
  var url_son = "index.do?display=SON&ancestryId=";
 var panda;
@@ -10,12 +10,12 @@ var list = new Array();
 
 function showSon(){
 	
-	getList(url_ancestry+$("#zid").val());
+	getList(url_son+$("#zid").val());
 }
 
 function showAncestry(){
 	var zid = document.getElementById("zid");//这里使用$("#zid")获取不了值，不过简单情况下document原生最好，原来jquery中获取value 使用 jobj.val()
-	getList(url+ zid.value);
+	getList(url_ancestry+ zid.value);
 	
 }
 
@@ -73,7 +73,8 @@ $("#drawing").attr("height", $(window).get(0).innerHeight);
      		
      		//初始化数据
      		list = new Array();
-     		init()
+     		
+     		
      		
      		var line;
      		
@@ -244,11 +245,11 @@ $("#drawing").attr("height", $(window).get(0).innerHeight);
      		console.log("change url("+url+") by father:"+result[0].father);
      		
      		if(result[0].father){
-     			url = url_ancestry;
+     			//url = url_ancestry;
      			drawPandaByUrlAndList(null,url_ancestry);
      		}
      		else{
-     			url = url_son;
+     			//url = url_son;
      			drawPandaByUrlAndList(null,url_son);
      			
      		}

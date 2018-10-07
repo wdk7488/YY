@@ -16,7 +16,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
+import com.ssh.POJO.Panda;
 import com.ssh.service.SearchPandaService;
+import com.ssh.struts.form.PandaForm;
 
 /** 
  * MyEclipse Struts
@@ -60,7 +62,13 @@ public class ShowPandaDetailAction extends Action {
 			return mapping.findForward("modifyPanda");
 		}
 		
-		request.setAttribute("panda", searchPandaService.findPandaByZid(zid));
+		
+		//会有panda的nullpointerException
+		PandaForm pandaForm = new PandaForm(searchPandaService.findPandaByZid(zid));
+		
+		//pandaForm.pandaToPandaForm(searchPandaService.findPandaByZid(zid));
+		
+		request.setAttribute("panda", pandaForm);
 		
 		return mapping.findForward("detailPanda");
 		

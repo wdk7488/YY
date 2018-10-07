@@ -231,7 +231,7 @@ public class PandaCharacterService {
 	
 	
 	public List<?> getListByZid(String id){
-		String sql = "select c.characterId cid,c.characteristics ccharacter,p.number num from characteristics c, pandaCharacter p where c.characterId=p.characterId and p.id ="+id+" order by num desc";
+		String sql = "select c.characterId cid,c.characteristics ccharacter,p.number num from characteristics c, pandacharacter p where c.characterId=p.characterId and p.id ="+id+" order by num desc";
 		List<?> list = pandacharacterDAO.queryBySql(sql);
 		
 		return list;

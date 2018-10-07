@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import org.hibernate.LockMode;
 import org.hibernate.SQLQuery;
+import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -59,10 +60,11 @@ public class GenealogyDAO extends HibernateDaoSupport {
 	}
 
 	public List<?> queryBySql(String sql){
-		
+		Session session = getSession();
 		log.info(" [queryBySql] queryBySql:"+sql);
-		List<?> list = getSession().createSQLQuery(sql).list();
+		List<?> list = session.createSQLQuery(sql).list();
 		log.info(" [queryBySql] query result size:"+list.size());
+		session.close();
 		return list;
 		
 	}
@@ -70,16 +72,20 @@ public class GenealogyDAO extends HibernateDaoSupport {
 	public Object queryUniqueBySql(String sql){
 		
 		//log.info("[queryUniqueBySql]  queryBySql:"+sql);
-		Object object = getSession().createSQLQuery(sql).uniqueResult();
+		Session session = getSession();
+		Object object = session.createSQLQuery(sql).uniqueResult();
 		log.info(" [queryUniqueBySql] querySql:("+sql+") result object:"+object);
+		getSession().close();
 		return object;
 	}
 	
 	public int excuteBySql(String sql){
-		
+		Session session = getSession();
 		log.info(" [excuteBySql] queryBySql:"+sql);
-		SQLQuery sqlQuery = getSession().createSQLQuery(sql);
+		SQLQuery sqlQuery = session.createSQLQuery(sql);
 		int result = sqlQuery.executeUpdate();//跟新的条数
+		session.cancelQuery();
+		session.close();
 		log.info(" [excuteBySql] query result int:"+result);
 		return result;
 		
@@ -217,7 +223,7 @@ public class GenealogyDAO extends HibernateDaoSupport {
 	
 	
 	public String getNewZid(){
-		String sql = "select max(zid) from genealogy";
+		String sql = "select max(cast(zid as signed)) from genealogy";//如果不加类型转化  max（string）最大就是9  不过违背了zid可以任意设定的问题
 		Object obj = queryUniqueBySql(sql);
 		
 		if(obj == null){
@@ -234,7 +240,6 @@ public class GenealogyDAO extends HibernateDaoSupport {
 			}
 		}
 		return null;
-		
 	}
 	
 	public boolean zidIsExists(String zid){

@@ -80,7 +80,6 @@ public class SearchPandaAction extends Action {
 		
 		List<?> list = searchPandaService.searchPanda(panda);
 		
-		
 		//list如果为空，显式的总是｛null} 而不是null ，所以造成判断必须加上list.get(0)==null 想办法解决
 		if(list == null || list.size() == 0 || list.get(0) == null){
 			request.setAttribute("notnull", "0");

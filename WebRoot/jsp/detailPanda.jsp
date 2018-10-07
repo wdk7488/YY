@@ -18,10 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="<%=basePath%>js/characteristics.js" charset="utf-8"></script>
 		 <style type="text/css">
 		 	
-		 	.div_info {height:400px;width:400px;margin-top:30px;margin-left:10px;float:left;}
-		 	.div_qiang {height:400px;width:400px;background-color:pink;float:left;margin-left:60px}
-		 	.div_input {height:20px;width:400px;float:left}
-		 	.div_tag {background-color:white;margin:6px;float:left}
+		 	
 		 </style>
 	</head>
 	<body id="body"><br>
@@ -29,22 +26,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="div_info">
 			
 			
-			zid : <span id="zid" class = "zid"> ${panda.zid}</span> |
-			name : <span name="name">${panda.name}</span>|
+			谱系号 : <span id="zid" class = "zid"> ${panda.zid}</span> |
+			名字 : <span name="name">${panda.name}</span>|
 			
-			sex :<span name=sex>${panda.sex} </span>
+			性别 :<span name=sex>${panda.sex} </span>
 			
 			
 			<br/>
-			mother : <span name="mother" >${panda.mother}</span>|
-			father : <span name="father" value = "${panda.father}"><br/>
+			母亲谱系号 : <span name="mother" >${panda.mother}</span>|
+			父亲谱系号 : <span name="father" >${panda.father}</span><br/>
 			
-			ancestryId : <span name="ancestryId">${panda.ancestryId}</span><br/>
+			祖宗 : <span name="ancestryId">${panda.ancestryId}</span><br/>
 			
 			pid : <span name="pid">${panda.pid}</span><br/>
-			birthday : <span name="birthday" >${panda.birthday} </span><br/>
-			dateOfDeath : <span name="dateOfDeath">${panda.dateOfDeath}</span><br/>
-			place : <span name="place">${panda.place}</span><br/>
+			生日 : <span name="birthday" >${panda.birthday} </span><br/>
+			出生地 : <span name="place">${panda.place}</span><br/>
+			现状 : <span name="dateOfDeath" >${panda.photo}</span><br/>
+			
 			</div>
 			
 			

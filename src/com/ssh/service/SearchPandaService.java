@@ -45,8 +45,6 @@ public class SearchPandaService {
 		List<Panda> list = new ArrayList();
 		if(!panda.getZid().isEmpty()){
 			panda = pandaDAO.findByZid(panda.getZid());
-			
-			
 			list.add(panda);
 		}else if(!panda.getName().isEmpty()){
 			list = pandaDAO.findByName(panda.getName());
@@ -116,10 +114,10 @@ public class SearchPandaService {
 		while(true){
 			//雌雄判断 可否引用参数
 			List<?> pandaList = null;
-			if(sex == 0){
+			if(null != sex && sex == 0){
 				pandaList = pandaDAO.findByMother(id);
 			}
-			else if(sex == 1){
+			else if(null != sex && sex == 1){
 				pandaList = pandaDAO.findByFather(id);
 			}
 			else{
@@ -156,7 +154,7 @@ public class SearchPandaService {
 				Map pandaMap = new HashMap();
 				pandaMap.put("panda",panda);
 				pandaMap.put("line", line);
-				pandaMap.put("father", zid);//father需要改为ancestry
+				pandaMap.put("ancestry", zid);//father需要改为ancestry
 				pandaArray.add(pandaMap);
 				//message.append(whosyoursonByLine(id,line));
 				 whosyoursonByLineAndSex(id,line,sex,firstFlag);
@@ -183,6 +181,7 @@ public class SearchPandaService {
 			Map pandaMap = new HashMap();
 			pandaMap.put("panda",panda);
 			pandaMap.put("line", line);
+			pandaMap.put("ancestry", "");//如果没有 js里不好判断查询祖先还是儿女
 			pandaMap.put("son", sonId);
 			pandaArray.add(pandaMap);
 		}

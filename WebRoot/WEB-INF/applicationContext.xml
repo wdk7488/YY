@@ -19,9 +19,50 @@
 		<property name="driverClassName"
 			value="com.mysql.jdbc.Driver">
 		</property>
-		<property name="url" value="jdbc:mysql://127.0.0.1:3306/test"></property>
-		<property name="username" value="root"></property>
-		<property name="password" value="123"></property>
+		<property name="url" value="jdbc:mysql://w.rdc.sae.sina.com.cn:3306/app_dktest"></property>
+		<property name="username" value="m50mmkk331"></property>
+		<property name="password" value="3l0yz115jx105m30wjw1zjhhy1zljy0l0j3ymkkk"></property>
+		<!-- 从池中取连接的最大等待时间 -->
+		<property name="maxWait" value="3000"></property>
+		<!-- 初始化连接 -->
+		<property name="initialSize" value="9"></property>
+		<!-- 最小空闲连接 -->
+		<property name="minIdle" value="5"></property>
+		<!-- 最大空闲连接 -->
+		<property name="maxIdle" value="29"></property>
+		<!-- 最大活动连接-->
+		<property name="maxActive" value="50"></property>
+		
+
+		<!-- 连接是否被空闲连接回收器进行检验，如果检验失败，从连接池中去除 -->
+		<property name="testWhileIdle" value="true"></property>
+		
+		<!-- 借出连接时不要测试，否则影响性能 -->
+		<property name="testOnBorrow" value="true"></property>
+		
+		<!-- 验证使用的sql语句 -->
+		<property name="validationQuery" value="select 1"></property>
+		
+		<!-- 每xx秒运行一次空闲连接回收器  毫秒-->
+		<property name="timeBetweenEvictionRunsMillis" value="20000"></property>
+		
+		<!-- 池中连接空闲xx秒后被回收 毫秒-->
+		<property name="minEvictableIdleTimeMillis" value="20000"></property>
+		
+		<!-- 默认库名 -->
+		<property name="defaultCatalog" value="app_dktest"></property>
+		
+		<!-- 每次空闲连接回收器运行时检查的连接数量 -->
+		<property name="numTestsPerEvictionRun" value="10"></property>
+		<!-- 每次空闲连接回收器运行时检查的连接数量 -->
+		
+		<!-- 连接泄露回收参数，当连接数少于3个时才执行-->
+		<property name="removeAbandoned" value="true">
+		</property>
+		<!--连接泄露回收参数，泄露的连接可以被删除的超时值 秒-->
+		<property name="removeAbandonedTimeout" value="180"></property>
+		 
+		
 	</bean>
 	
 

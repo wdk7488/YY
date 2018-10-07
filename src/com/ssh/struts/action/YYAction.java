@@ -44,20 +44,26 @@ public class YYAction extends Action {
 		String more = request.getParameter("more");
 		String display = request.getParameter("display");
 		String ancestryId = request.getParameter("ancestryId");
+		
+		if(null == display || null == ancestryId) {
+			response.getWriter().write("{'message':'arg is null'}");
+			return null;
+		}
+		
 		List list = new ArrayList(); 
 		List list2 = new ArrayList();
 		if(!"1".equals(more)){
 			i = 0;
 		}
-		if("ANCESTRY".equals(display) && !ancestryId.isEmpty()){
-			log.info("getlist by ANCESTRY");
+		if("SON".equals(display)  && !ancestryId.isEmpty()){
+			
 			Panda panda = searchPandaService.findPandaByZid(ancestryId);
 			if(panda != null){
 
 				Map pandaMap = new HashMap();
 				pandaMap.put("panda",panda);
 				pandaMap.put("line", 1);
-				pandaMap.put("father", panda.getMother());//这里key应该改为nextNode或者ancestryId
+				pandaMap.put("ancestry", panda.getMother());//这里key应该改为nextNode或者ancestryId
 				
 				list2.add(pandaMap);
 				list = searchPandaService.whosyoursonByLineAndSex(ancestryId,1,panda.getSex() == null?2:panda.getSex(),true);
@@ -70,15 +76,20 @@ public class YYAction extends Action {
 				
 				
 			}
-			
+			log.info("getlist by SON size:"+list2.size());
 			
 			
 		}
-		else if("SON".equals(display) && !ancestryId.isEmpty()){
-			log.info("getlist by SON");
-			int line = 0;
-			list = searchPandaService.whosyourAncestryByLineAndSex(ancestryId, "0", 1, true);
-			if(null != list2 && list.size() >1){
+		else if("ANCESTRY".equals(display) && !ancestryId.isEmpty()){
+			
+			
+			list2 = searchPandaService.whosyourAncestryByLineAndSex(ancestryId, "0", 1, true);
+			/*
+			 * int line = 0;
+			 * 20180928引入showLine参数后倒叙line会造成显示问题，去掉倒叙line，修改画线方法尝试
+			 * if(null != list2 && list.size() >1){
+				
+				
 				//为了不加个js方法，这里需要先取出line，然后line全部取反
 				for (Object object : list) {
 					if((Integer)((Map)object).get("line") > line){
@@ -86,31 +97,37 @@ public class YYAction extends Action {
 					}
 				}
 				
+				//需要优化  line 的概念复杂了
 				line += 1;
 				for(Object object : list){
 					
 					int li = (Integer)((Map)object).get("line");
-					if(line <= 5){
-						((Map)object).put("line", line-li);
-						list2.add(object);
-					}
-					else if(line > 5){
-						//转类型都这么麻烦 自动解包  太复杂了  考虑用泛型
-						//倒叙数4个加入list2列表
-						if(li < 5){
-							((Map)object).put("line", 5-li);
-							list2.add(object);
-						}
-						
-						
+					((Map)object).put("line", line-li);
+					list2.add(object);
+					
+//					//  页面显示代数改到js中  不再固定显示4代，通过showLine参数控制
+//					if(line <= 5){
+//						((Map)object).put("line", line-li);
+//						list2.add(object);
+//					}
+//					else if(line > 5){
+//						//转类型都这么麻烦 自动解包  太复杂了  考虑用泛型
+//						//倒叙数4个加入list2列表
+//						if(li < 5){
+//							((Map)object).put("line", 5-li);
+//							list2.add(object);
+//						}
+//						
+//						
 					}
 					
 					
 					
 				}
-			}
-		
-		
+				
+			}*/
+			log.info("getlist by ANCESTRY size:"+list2.size());
+			
 		}
 		else{
 			log.info("getlist by test");

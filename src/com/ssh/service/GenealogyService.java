@@ -49,7 +49,7 @@ public class GenealogyService {
 			//如果zid为空，找到不重复的zid
 			zid = genealogyDAO.getNewZid();
 			if(saveFlag(zid,father,mother)){
-				genealogy.setZid(genealogyDAO.getNewZid());
+				genealogy.setZid(zid);
 				genealogyDAO.save(genealogy);
 				log.info(" [saveOrUpdateGenealogy] save genealogy zid("+zid+") :"+genealogy);
 				return new MessageAndFlag("创建一个新zid("+zid+")，保存成功",true);
@@ -118,7 +118,7 @@ public class GenealogyService {
 	}
 	
 	
-	public List<Map<String,Object>> whosYourAncestryByLineAndSex(String id,int line,Integer sex,boolean firstFlag){
+	public List<Map<String,Object>> whosYourSonByLineAndSex(String id,int line,Integer sex,boolean firstFlag){
 		
 		
 		//StringBuffer message = new StringBuffer();
@@ -177,16 +177,16 @@ public class GenealogyService {
 				genealogyMap.put("ancestry", zid);//father需要改为ancestry
 				genealogyList.add(genealogyMap);
 				//message.append(whosyoursonByLine(id,line));
-				whosYourAncestryByLineAndSex(id,line,sex,firstFlag);
+				whosYourSonByLineAndSex(id,line,sex,firstFlag);
 			}
 			log.info("pandaArraysize:"+genealogyList.size());
 			return genealogyList;
 			
 		}
-		return null;
+		return genealogyList;
 	}
 	
-	public List<Map<String, Object>> whosYourSonByLineAndSex(String zid,String sonId,int line, boolean firstFlag){
+	public List<Map<String, Object>> whosYourAncestryByLineAndSex(String zid,String sonId,int line, boolean firstFlag){
 		if(null == zid || zid.isEmpty()){
 			return null;
 		}
@@ -210,12 +210,12 @@ public class GenealogyService {
 		line++;
 		if(null != mother && !mother.isEmpty() && !Constants.GENEALOGY.UNKOWN.getValue().equals(mother)){
 			
-			whosYourSonByLineAndSex(mother,zid,line,false);
+			whosYourAncestryByLineAndSex(mother,zid,line,false);
 			
 		}
 		if(null != father && !father.isEmpty() && !Constants.GENEALOGY.UNKOWN.getValue().equals(father)){
 			
-			whosYourSonByLineAndSex(father,zid,line,false);
+			whosYourAncestryByLineAndSex(father,zid,line,false);
 			
 		}
 			

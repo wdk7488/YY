@@ -15,15 +15,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel = "stylesheet" type="text/css" href="<%=basePath%>css/head.css">
 	</head>
 	<body>
-	extends、<%@ include file="head1.jsp" %>
+	<%@ include file="head1.jsp" %>
 		<div  class="div_info">
 		<html:form action="/searchPanda">
 			
-			zid : <html:text property="zid"/><html:errors property="zid"/><br/>
-			name : <html:text property="name"/><html:errors property="name"/><br/>
-			ansestryId : <html:text property="ansestryId"/><html:errors property="ansestryId"/><br/>
-			mother : <html:text property="mother"/><html:errors property="mother"/><br/>
-			father : <html:text property="father"/><html:errors property="father"/><br/>
+			id : <html:text property="zid"/><html:errors property="zid"/><br/>
+			姓名 : <html:text property="name"/><html:errors property="name"/><br/>
+			ansestryId : <html:hidden property="ansestryId"/><html:errors property="ansestryId"/><br/>
+			母亲id : <html:text property="mother"/><html:errors property="mother"/><br/>
+			父亲id : <html:text property="father"/><html:errors property="father"/><br/>
 			<html:submit/><html:cancel/>
 		</html:form>
 		
@@ -51,7 +51,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  				-->
  				<a href="<%=basePath%>jsp/zupu.jsp?display=SON&zid=${list.zid}">溯源</a>
  				<!-- 
- 				<a href="/SSH/index.do?zid=${list.zid}">溯源</a> 
+ 				<a href="/SSH/index.do?zid=${list.zid}">溯源</a> -->
  				
  				</td>
 			</tr>
