@@ -83,11 +83,8 @@ public class CharacteristicsDAO extends HibernateDaoSupport {
 		Object object = session.createSQLQuery(sql).uniqueResult();
 		log.info(" [queryUniqueBySql] querySql:("+sql+") result object:"+object);
 		try {
-			session.close().close();
+			session.close();  //connect is null ?
 		} catch (HibernateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

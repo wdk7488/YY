@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 	<body>
 	<%@ include file="head1.jsp" %>
-		<div  class="div_info">
+		<div   class="div_center">
 		<html:form action="/searchPanda">
 			
 			id : <html:text property="zid"/><html:errors property="zid"/><br/>
